@@ -1,0 +1,220 @@
+{
+  "ns": [
+    {
+      "config": {
+        "nsip": "192.168.1.50",
+        "username": "nsroot",
+        "password": "nsroot",
+        "hostname": "ns1",
+        "ips": [
+          {
+            "ip": "192.168.1.51",
+            "netmask": "255.255.255.0",
+            "type": "SNIP",
+            "mgmt": true
+          },
+          {
+            "ip": "10.10.10.5",
+            "netmask": "255.255.255.0",
+            "type": "SNIP",
+            "mgmt": false
+          }
+        ],
+        "dns": [
+          {
+            "nameserver": "8.8.8.8"
+          },
+          {
+            "nameserver": "8.8.4.4"
+          }
+        ],
+        "tz": "GMT-04:00-EDT-America/New_York",
+        "localLicFileLoc": "NetScaler_VPX1_PLT.lic",
+        "features": [
+          {
+            "feature": "lb",
+            "enable": true
+          },
+          {
+            "feature": "cs",
+            "enable": true
+          },
+          {
+            "feature": "ssl",
+            "enable": true
+          },
+          {
+            "feature": "ic",
+            "enable": false
+          }
+        ],
+        "modes": [
+          {
+            "mode": "l2",
+            "enable": false
+          },
+          {
+            "mode": "usip",
+            "enable": false
+          },
+          {
+            "mode": "mbf",
+            "enable": false
+          },
+          {
+            "mode": "usnip",
+            "enable": true
+          },
+          {
+            "mode": "l3",
+            "enable": true
+          }
+        ]
+      },
+      "services": [
+        {
+          "port": 80,
+          "name": "google0",
+          "ip": "66.18.36.113",
+          "type": "http"
+        },
+        {
+          "port": 80,
+          "name": "google1",
+          "ip": "64.233.167.99",
+          "type": "http"
+        },
+        {
+          "port": 443,
+          "name": "yahooSSL",
+          "ip": "98.138.253.109",
+          "type": "ssl"
+        }
+      ],
+      "lbvs": [
+        {
+          "name": "google",
+          "servicetype": "HTTP",
+          "ipv46": "192.168.1.52",
+          "port": 80,
+          "persistencetype": "COOKIEINSERT",
+          "lbmethod": "ROUNDROBIN",
+          "services": [
+            {
+              "servicename": "google0",
+              "weight": 1
+            },
+            {
+              "servicename": "google1",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "name": "yahoo",
+          "servicetype": "HTTP",
+          "ipv46": "192.168.1.52",
+          "port": 81,
+          "services": [
+            {
+              "servicename": "yahooSSL",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "nsip": "192.168.1.60",
+        "username": "nsroot",
+        "password": "nsroot",
+        "hostname": "ns2",
+        "ips": [
+          {
+            "ip": "192.168.1.61",
+            "netmask": "255.255.255.0",
+            "type": "SNIP",
+            "mgmt": true
+          },
+          {
+            "ip": "10.10.10.6",
+            "netmask": "255.255.255.0",
+            "type": "SNIP",
+            "mgmt": false
+          }
+        ],
+        "dns": [
+          {
+            "nameserver": "8.8.8.8"
+          },
+          {
+            "nameserver": "8.8.4.4"
+          }
+        ],
+        "tz": "GMT-04:00-EDT-America/New_York",
+        "localLicFileLoc": "NetScaler_VPX1_PLT.lic",
+        "features": [
+          {
+            "feature": "lb",
+            "enable": true
+          },
+          {
+            "feature": "cs",
+            "enable": true
+          },
+          {
+            "feature": "ssl",
+            "enable": true
+          },
+          {
+            "feature": "ic",
+            "enable": false
+          }
+        ],
+        "modes": [
+          {
+            "mode": "l2",
+            "enable": false
+          },
+          {
+            "mode": "usip",
+            "enable": false
+          },
+          {
+            "mode": "mbf",
+            "enable": false
+          },
+          {
+            "mode": "usnip",
+            "enable": true
+          },
+          {
+            "mode": "l3",
+            "enable": true
+          }
+        ]
+      }
+    }
+  ],
+  "hanode": [
+    {
+      "nsip": "192.168.1.50",
+      "username": "nsroot",
+      "password": "nsroot",
+      "id": 0,
+      "mode": "primary",
+      "hastatus": "ENABLED",
+      "primary": "192.168.1.50"
+    },
+    {
+      "nsip": "192.168.1.60",
+      "username": "nsroot",
+      "password": "nsroot",
+      "id": 1,
+      "mode": "secondary",
+      "hastatus": "ENABLED",
+      "primary": "192.168.1.50"
+    }
+  ]
+}
