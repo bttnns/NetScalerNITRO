@@ -29,6 +29,7 @@ python nsAuto.py
 
 nsAutoCfg.json
 -----
+```
 ns # This node is an array of netscalers to config, you specify multiple here.  In my example file I have two. 192.168.1.50 and 192.168.1.60
 
   config # the config node is an item that is used to specify the configuration, most of these are required
@@ -117,8 +118,4 @@ hanode # Specify all your HA Nodes here.  Note this is a new node from ns at the
   hastatus # Specify the final hastatus: ENABLED, STAYPRIMARY, STAYSECONDARY, ect...
   
   primary # Specify the primary HA Node for this netscaler here, if you are the primary then specify your own IP
-  
-  
-
-
-  
+```
