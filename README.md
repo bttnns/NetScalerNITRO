@@ -4,14 +4,14 @@ This script is used to take a brand new NetScaler and apply a base configuration
 
 You use the nsAutoCfg.json file to specify the configuration.  Check out the file for what all you can do to configure the NetScaler.  A high level overview of this configuration file is below.
 
-## Requirements
+#### Requirements
 NetScaler(s) 10.1 or up
 
 The NetScaler Python SDK, can download from a NetScaler 10.5 or up
 
 Python module requirments: paramiko, requests (Install both via "pip install MODULENAME")
 
-## Running
+#### Running
 Run from the Nitro SDK root or install the Nitro SDK (installation instructions in the SDK)
 
 In the same directory you need your license file and the config.json referenced below.
@@ -23,7 +23,7 @@ Run Script via:
 python nsAuto.py
 
 
-## nsAutoCfg.json
+#### nsAutoCfg.json
 ```
 ns # This node is an array of netscalers to config, you specify multiple here.  In my example file I have two. 192.168.1.50 and 192.168.1.60
 
