@@ -2,13 +2,13 @@
   "ns": [
     {
       "config": {
-        "nsip": "192.168.1.50",
+        "nsip": "192.168.207.50",
         "username": "nsroot",
         "password": "nsroot",
         "hostname": "ns1",
         "ips": [
           {
-            "ip": "192.168.1.51",
+            "ip": "192.168.207.51",
             "netmask": "255.255.255.0",
             "type": "SNIP",
             "mgmt": true
@@ -46,6 +46,14 @@
           {
             "feature": "ic",
             "enable": false
+          },
+          {
+            "feature": "cmp",
+            "enable": true
+          },
+          {
+            "feature": "rewrite",
+            "enable": true
           }
         ],
         "modes": [
@@ -95,7 +103,7 @@
         {
           "name": "google",
           "servicetype": "HTTP",
-          "ipv46": "192.168.1.52",
+          "ipv46": "192.168.207.52",
           "port": 80,
           "persistencetype": "COOKIEINSERT",
           "lbmethod": "ROUNDROBIN",
@@ -113,7 +121,7 @@
         {
           "name": "yahoo",
           "servicetype": "HTTP",
-          "ipv46": "192.168.1.52",
+          "ipv46": "192.168.207.52",
           "port": 81,
           "services": [
             {
@@ -126,13 +134,13 @@
     },
     {
       "config": {
-        "nsip": "192.168.1.60",
+        "nsip": "192.168.207.60",
         "username": "nsroot",
         "password": "nsroot",
         "hostname": "ns2",
         "ips": [
           {
-            "ip": "192.168.1.61",
+            "ip": "192.168.207.61",
             "netmask": "255.255.255.0",
             "type": "SNIP",
             "mgmt": true
@@ -199,22 +207,22 @@
   ],
   "hanode": [
     {
-      "nsip": "192.168.1.50",
+      "nsip": "192.168.207.50",
       "username": "nsroot",
       "password": "nsroot",
       "id": 0,
       "mode": "primary",
       "hastatus": "ENABLED",
-      "primary": "192.168.1.50"
+      "primary": "192.168.207.50"
     },
     {
-      "nsip": "192.168.1.60",
+      "nsip": "192.168.207.60",
       "username": "nsroot",
       "password": "nsroot",
       "id": 1,
       "mode": "secondary",
       "hastatus": "ENABLED",
-      "primary": "192.168.1.50"
+      "primary": "192.168.207.50"
     }
   ]
 }

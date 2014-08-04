@@ -101,8 +101,8 @@ class netScaler:
         if wait:
             # if we want to wait lets keep checking the nitro status page for a
             # 200 OK.  If we get the 200, lets reinit the connection and cont.
-            time.sleep(15)
             while True:
+                time.sleep(15)
                 try:
                     r = requests.get("http://" + self.cfg['config']['nsip'] +
                                      "/nitro/v1/stat", timeout=15,
@@ -469,6 +469,7 @@ def confHA(hanod, jsn):
         except Exception as e:
             print("Exception::message=" + str(e.args))
 
+    ns.savec()
     ns.closeConnection()
 
 
