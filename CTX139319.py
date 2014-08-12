@@ -149,20 +149,22 @@ class set_config :
             if debug:
                 print '\n*** Logging off ***\n'                        
         
-        except nitro_exception as  e:
-            print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-        except Exception as e:         
-            print("Exception::message="+str(e.args))
+        except nitro_exception as e:  # Error Handling
+            print("Exception::errorcode=" +
+                  str(e.errorcode) + ",message=" + e.message)
+        except Exception as e:
+            print("Exception::message=" + str(e.args))
         return
 
 def worker(client, myGateway, myAppCURL):
     try:
         print ''
         
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def staBinding(client,myGateway,myAppCURL,debug):
@@ -173,10 +175,11 @@ def staBinding(client,myGateway,myAppCURL,debug):
         mySTAServer.staserver = myAppCURL
         vpnvserver_staserver_binding.add(client,mySTAServer)
 
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+',message='+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def sessionInternalWeb(client, myGateway, mySSODomain, sfURL, debug):
@@ -214,10 +217,11 @@ def sessionInternalWeb(client, myGateway, mySSODomain, sfURL, debug):
         if debug:
             print 'VPN Session Policy is bound to Gateway Virtual Server\n'
         
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def sessionWeb(client, myGateway, mySSODomain, sfURL, myAppCURL, debug):
@@ -254,10 +258,11 @@ def sessionWeb(client, myGateway, mySSODomain, sfURL, myAppCURL, debug):
         if debug:
             print 'VPN Session Policy is bound to Gateway Virtual Server\n'
         
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def sessionReceiverWindows(client, myGateway, mySSODomain, sfURL,myAppCURL, debug):
@@ -294,10 +299,11 @@ def sessionReceiverWindows(client, myGateway, mySSODomain, sfURL,myAppCURL, debu
         if debug:
             print 'VPN Session Policy is bound to Gateway Virtual Server\n'
         
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
     
 def sessionWorxHome(client, myGateway, mySSODomain, myAppCURL, debug):
@@ -333,10 +339,11 @@ def sessionWorxHome(client, myGateway, mySSODomain, myAppCURL, debug):
         if debug:
             print 'VPN Session Policy is bound to Gateway Virtual Server\n'
         
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def clientlessAccessPoliciesReceiverWeb(client,gateway, debug):
@@ -399,10 +406,11 @@ def clientlessAccessPoliciesReceiverWeb(client,gateway, debug):
         if debug:
             print 'Clientless policy was bound to VServer'
     
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
 
 def clientlessAccessPoliciesReceiver(client,gateway,debug):
@@ -432,10 +440,11 @@ def clientlessAccessPoliciesReceiver(client,gateway,debug):
         if debug:
             print 'Clientless policy was bound to VServer'
            
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
     return
     
 def gatewaySelection(client, debug):
@@ -449,10 +458,11 @@ def gatewaySelection(client, debug):
         worxGatewayName = gwList[gwNum].name
         return worxGatewayName
 
-    except nitro_exception as  e:
-        print("Exception::errorcode="+str(e.get_errorcode())+",message="+ e.get_message())
-    except Exception as e:         
-        print("Exception::message="+str(e.args))
+    except nitro_exception as e:  # Error Handling
+        print("Exception::errorcode=" +
+              str(e.errorcode) + ",message=" + e.message)
+    except Exception as e:
+        print("Exception::message=" + str(e.args))
 
 if __name__ == '__main__':
 #    try:
